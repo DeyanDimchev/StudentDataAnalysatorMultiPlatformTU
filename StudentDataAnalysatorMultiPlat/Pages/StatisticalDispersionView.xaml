@@ -20,12 +20,12 @@
                         </Grid.ColumnDefinitions>
 
                         <Label Grid.Column="0"
-                                   Text="Разсейване"
+                                   Text="Размах"
                                    VerticalOptions="Center"
                                    HorizontalOptions="Center"/>
 
                         <Label Grid.Column="1"
-                                   Text="Отклонение"
+                                   Text="Дисперсия"
                                    VerticalOptions="Center"
                                    HorizontalOptions="Center"/>
 
@@ -50,12 +50,15 @@
 
                                     <Label Grid.Column="0" 
                                                 Text="{Binding MinMaxDispersion}"
+                                                HorizontalTextAlignment="Center"
                                                 Padding="10,10,10,10"/>
                                     <Label Grid.Column="1"
                                                 Text="{Binding Variance}"
+                                                HorizontalTextAlignment="Center"
                                                 Padding="10,10,10,10"/>
                                     <Label Grid.Column="2"
                                                 Text="{Binding StandartDeviation}"
+                                                HorizontalTextAlignment="Center"
                                                 Padding="10,10,10,10"/>
 
                                 </Grid>

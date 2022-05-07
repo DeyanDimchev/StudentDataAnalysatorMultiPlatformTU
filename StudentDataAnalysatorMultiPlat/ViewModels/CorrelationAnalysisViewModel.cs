@@ -64,4 +64,60 @@ namespace StudentDataAnalysatorMultiPlat.ViewModels
             CorrelationResult = result;
         }
     }
+
+    public class CopyOfCorrelationAnalysisViewModel : BaseViewModel
+    {
+
+        private ObservableCollection<CorrelationAnalysisResult> correlationResult;
+        private ObservableCollection<Log> logsList;
+        private ObservableCollection<Student> studentsList;
+
+
+        public CopyOfCorrelationAnalysisViewModel()
+        {
+            SingletonClass.TestEventAggregator.GetEvent<GetCorrelationAnalysisEvent>().Subscribe(SetResultList);
+            SingletonClass.TestEventAggregator.GetEvent<UpdateListsEvent>().Publish("");
+        }
+
+        public ObservableCollection<Log> LogsList
+        {
+            get
+            {
+                return logsList;
+            }
+            set
+            {
+                logsList = value;
+                OnPropertyChanged("LogsList");
+            }
+        }
+
+        public ObservableCollection<Student> StudentsList
+        {
+            get
+            {
+                return studentsList;
+            }
+            set
+            {
+                studentsList = value;
+                OnPropertyChanged("StudentsList");
+            }
+        }
+
+        public ObservableCollection<CorrelationAnalysisResult> CorrelationResult
+        {
+            get { return correlationResult; }
+            set
+            {
+                correlationResult = value;
+                OnPropertyChanged("CorrelationResult");
+            }
+        }
+
+        private void SetResultList(ObservableCollection<CorrelationAnalysisResult> result)
+        {
+            CorrelationResult = result;
+        }
+    }
 }

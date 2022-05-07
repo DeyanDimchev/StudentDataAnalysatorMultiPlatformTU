@@ -44,6 +44,7 @@ namespace DatasetAnalysator.CalculationServices
             foreach (double id in studentIds)
             {
                 coursesViewed = 0;
+                coursesViewedDict[id] = coursesViewed;
                 foreach (Log log in logsList)
                 {
                     if (log.Description.Contains(id.ToString()) && log.EventName == "Course viewed")

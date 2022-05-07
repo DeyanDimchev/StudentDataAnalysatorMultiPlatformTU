@@ -32,10 +32,10 @@ namespace StudentDataAnalysatorMultiPlat.Services.CalculationServices
 
         public ObservableCollection<FrequencyDistributionResult>  GetResults()
         {
-            Dictionary<double, int> studentCoursesViewedDict = logHelper.CreateDictionaryWithCoursesViewed();
+                Dictionary<double, int> studentCoursesViewedDict = logHelper.CreateDictionaryWithCoursesViewed();
 
-            FillFrequencyOfViewedCourses(studentCoursesViewedDict);
-            CalculateFrequencyDistributionResult();
+                FillFrequencyOfViewedCourses(studentCoursesViewedDict);
+                CalculateFrequencyDistributionResult();
 
             return frequencyResult;
         }

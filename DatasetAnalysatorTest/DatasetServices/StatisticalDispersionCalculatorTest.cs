@@ -26,11 +26,33 @@ namespace DatasetAnalysatorTest.DatasetServices
                     {
                          10, 11, 13, 15, 15, 17, 19, 20
                     };
+
             double expectedDispersion = 10;
 
             double actualDispersion = statisticalDispersionCalculator.CalculateMinMaxDispersion(x);
             Assert.AreEqual(expectedDispersion, actualDispersion);
         }
+
+        [TestMethod]
+        public void TestCalculateMinMaxDispersionSameNumbers()
+        {
+            var x = new List<int>()
+                    {
+                         30,30,30,30,30
+                    };
+            double expectedDispersion = 0;
+
+            double actualDispersion = statisticalDispersionCalculator.CalculateMinMaxDispersion(x);
+            Assert.AreEqual(expectedDispersion, actualDispersion);
+        }
+
+        [TestMethod]
+        public void TestCalculateMinMaxDispersionForEmptyList()
+        {
+            var x = new List<int>();
+            Assert.ThrowsException<InvalidOperationException>(()=>statisticalDispersionCalculator.CalculateMinMaxDispersion(x));
+        }
+
         [TestMethod]
         public void TestCalculateVariance()
         {
@@ -39,6 +61,26 @@ namespace DatasetAnalysatorTest.DatasetServices
                          46, 69,  32,  60,  52,  41
                     };
             double expectedVariance = 177.2;
+
+            double actualVariance = statisticalDispersionCalculator.CalculateVariance(x);
+            Assert.AreEqual(expectedVariance, actualVariance);
+        }
+
+        [TestMethod]
+        public void TestCalculateVarianceForEmptyList()
+        {
+            var x = new List<int>();
+            Assert.ThrowsException<InvalidOperationException>(() => statisticalDispersionCalculator.CalculateVariance(x));
+        }
+
+        [TestMethod]
+        public void TestCalculateVarianceSameNumbers()
+        {
+            var x = new List<int>()
+                    {
+                         30,30,30,30,30
+                    };
+            double expectedVariance = 0;
 
             double actualVariance = statisticalDispersionCalculator.CalculateVariance(x);
             Assert.AreEqual(expectedVariance, actualVariance);
